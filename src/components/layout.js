@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+// Components
+import Header from "./header"
+
 // Styled Component
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { normalize } from "styled-normalize"
@@ -33,11 +36,13 @@ const GlobalStyles = createGlobalStyle`
 const darkTheme = {
   background: "#121212",
   color: "#FAFAFA",
+  red: "#ea291e",
 }
 
 const lightTheme = {
   background: "#FAFAFA",
   color: "#121212",
+  red: "#ea291e",
 }
 
 const Layout = ({ children }) => {
@@ -52,8 +57,9 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={darkTheme}>
       <GlobalStyles />
+      <Header />
       <main>{children}</main>
     </ThemeProvider>
   )

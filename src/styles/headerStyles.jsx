@@ -1,0 +1,46 @@
+import styled from "styled-components"
+
+export const HeaderNav = styled.nav`
+  background-color: blueviolet;
+  position: absolute;
+  top: 72px;
+  left: 0px;
+  right: 0px;
+  z-index: 99;
+  height: 0px;
+  width: 100%;
+`
+
+export const Logo = styled.div`
+  a {
+    color: ${props => props.theme.color};
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 5px;
+  }
+  span {
+    height: 20px;
+    width: 20px;
+    background-color: ${props => props.theme.red};
+    display: inline-block;
+    border-radius: 100%;
+    margin: 0 2px;
+    margin-right: 5px;
+  }
+`
+export const Menu = styled.div`
+  button {
+    border: none;
+    outline: none;
+    background: none;
+    transform-origin: center;
+    padding: 20px;
+    span {
+      height: 8px;
+      width: 36px;
+      background-color: ${props => props.theme.color};
+      display: block;
+      margin: 8px;
+    }
+  }
+`
