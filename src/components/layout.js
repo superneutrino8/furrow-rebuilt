@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -11,7 +11,10 @@ import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { normalize } from "styled-normalize"
 
 // Context
-import { useGlobalStateContext } from "../context/globalContext"
+import {
+  useGlobalStateContext,
+  useGlobalDispatchContext,
+} from "../context/globalContext"
 
 // Global Styles
 const GlobalStyles = createGlobalStyle`
@@ -62,13 +65,19 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const { currentTheme } = useGlobalStateContext()
+  const { currentTheme, cursorType } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
+
+  const onMouse = cursorType => {
+    cursorType = (cursorType.includes(cursorType) && cursorType) || false
+    dispatch({ type: "CURSOR_STYLE", cursorType: cursorType })
+  }
 
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyles />
       <CustomCourser />
-      <Header />
+      <Header onMouse={onMouse} />
       <main>{children}</main>
     </ThemeProvider>
   )
