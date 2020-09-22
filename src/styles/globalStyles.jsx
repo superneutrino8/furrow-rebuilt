@@ -37,3 +37,19 @@ export const Flex = styled.div`
       justify-content: space-between;
     `}
 `
+
+export const Cursor = styled.div`
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  background: ${props => props.theme.red};
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease-in-out;
+  transition-property: width, height, transform, border;
+  will-change: width, height, transform, border;
+  pointer-events: none;
+  z-index: 999;
+`

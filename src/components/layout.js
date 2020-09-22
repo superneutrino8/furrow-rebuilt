@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 // Components
 import Header from "./header"
+import CustomCourser from "./customCursor"
 
 // Styled Component
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -19,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
 
   * {
     text-decoration: none;
+    cursor: none;
   }
 
   html {
@@ -33,6 +35,7 @@ const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     background: ${props => props.theme.background};
     color: ${props => props.theme.color};
+    transition: all 0.2s ease-in-out;
   }
 `
 
@@ -64,6 +67,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyles />
+      <CustomCourser />
       <Header />
       <main>{children}</main>
     </ThemeProvider>

@@ -28,7 +28,11 @@ const Header = () => {
   }, [currentTheme])
 
   return (
-    <HeaderNav>
+    <HeaderNav
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: -100, opacity: 0 }}
+      transition={{ duration: 0.6, ease: [0.0, -0.05, -0.01, 0.9] }}
+    >
       <Container>
         <Flex spaceBetween>
           <Logo>

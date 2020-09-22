@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
-export const HeaderNav = styled.nav`
+export const HeaderNav = styled(motion.nav)`
   background-color: blueviolet;
   position: absolute;
   top: 52px;
@@ -17,6 +18,7 @@ export const Logo = styled.div`
     font-weight: 800;
     font-size: 1.8rem;
     letter-spacing: 2.5px;
+    user-select: none;
   }
   span {
     height: 20px;
@@ -26,6 +28,7 @@ export const Logo = styled.div`
     border-radius: 100%;
     margin: 0 2px;
     margin-right: 2.5px;
+    user-select: none;
   }
 `
 export const Menu = styled.div`
