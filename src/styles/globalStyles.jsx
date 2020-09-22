@@ -59,4 +59,8 @@ export const Cursor = styled.div`
     background: transparent;
     border: 2px solid ${props => props.theme.red};
   }
+
+  &.pointer {
+    border: 2px solid ${props => props.theme.color};
+  }
 `
