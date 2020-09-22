@@ -31,7 +31,9 @@ export const Flex = styled.div`
   align-items: center;
   width: 100%;
 
-  ${props => props.spaceBetween && css`
-    justify-content: space-between;
-  `}
+  ${props =>
+    props.spaceBetween &&
+    css`
+      justify-content: space-between;
+    `}
 `

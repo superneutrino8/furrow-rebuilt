@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const HeaderNav = styled.nav`
   background-color: blueviolet;
   position: absolute;
-  top: 72px;
+  top: 52px;
   left: 0px;
   right: 0px;
   z-index: 99;
@@ -16,7 +16,7 @@ export const Logo = styled.div`
     color: ${props => props.theme.color};
     font-weight: 800;
     font-size: 1.8rem;
-    letter-spacing: 5px;
+    letter-spacing: 2.5px;
   }
   span {
     height: 20px;
@@ -25,7 +25,7 @@ export const Logo = styled.div`
     display: inline-block;
     border-radius: 100%;
     margin: 0 2px;
-    margin-right: 5px;
+    margin-right: 2.5px;
   }
 `
 export const Menu = styled.div`
@@ -36,8 +36,8 @@ export const Menu = styled.div`
     transform-origin: center;
     padding: 20px;
     span {
-      height: 8px;
-      width: 36px;
+      height: 4px;
+      width: 28px;
       background-color: ${props => props.theme.color};
       display: block;
       margin: 8px;
