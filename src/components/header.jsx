@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 
 // Styled Component
@@ -6,18 +6,34 @@ import { HeaderNav, Logo, Menu } from "../styles/headerStyles"
 import { Container, Flex } from "../styles/globalStyles"
 
 // Context
-import { useGlobalStateContext } from "../context/globalContext"
+import {
+  useGlobalStateContext,
+  useGlobalDispatchContext,
+} from "../context/globalContext"
 
 const Header = () => {
-  const currentTheme = useGlobalStateContext()
+  const { currentTheme } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
+
+  const toggleTheme = () => {
+    if (currentTheme === "dark") {
+      dispatch({ type: "TOGGLE_THEME", theme: "light" })
+    } else {
+      dispatch({ type: "TOGGLE_THEME", theme: "dark" })
+    }
+  }
+
+  useEffect(() => {
+    window.localStorage.setItem("Theme", currentTheme)
+  }, [currentTheme])
+
   return (
     <HeaderNav>
       <Container>
         <Flex spaceBetween>
-          {console.log(currentTheme)}
           <Logo>
             <Link to="/">FURR</Link>
-            <span></span>
+            <span onClick={toggleTheme}></span>
             <Link to="/">W</Link>
           </Logo>
           <Menu>
