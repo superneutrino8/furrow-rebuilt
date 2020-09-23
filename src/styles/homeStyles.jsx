@@ -1,0 +1,33 @@
+import styled from "styled-components"
+import { motion } from "framer-motion"
+
+export const Banner = styled.div`
+  height: 100vh;
+  width: 100%;
+  position: relative;
+`
+
+export const Video = styled.div`
+  height: 100vh;
+  width: 100%;
+
+  video {
+    object-fit: cover;
+  }
+`
+
+export const Canvas = styled.canvas``
+
+export const BannerTittle = styled.h1`
+  position: absolute;
+  /* top: 0; */
+  left: -14px;
+  bottom: -65px;
+  font-weight: 900; 
+`
+
+export const Heading = styled.span`
+  display: block;
+  font-size: 13rem;
+  line-height: 0.8;
+`
