@@ -16,14 +16,23 @@ export const Video = styled.div`
   }
 `
 
-export const Canvas = styled.canvas``
+export const Canvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: ${props => props.theme.background};
+`
 
 export const BannerTittle = styled.h1`
   position: absolute;
   /* top: 0; */
   left: -14px;
   bottom: -65px;
-  font-weight: 900; 
+  font-weight: 900;
+  color: ${props => props.theme.color};
+  pointer-events: none;
 `
 
 export const Heading = styled.span`
