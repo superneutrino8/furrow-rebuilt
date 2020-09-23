@@ -9,8 +9,18 @@ import {
   Heading,
 } from "../../styles/homeStyles"
 
+// Custom Hooks
+import { useWindowSize } from "../../hooks/useWindowSize"
+
+// Context
+import { useGlobalStateContext } from "../../context/globalContext"
+
 const HomeBanner = () => {
   const canvasRef = useRef(null)
+
+  const windowSize = useWindowSize()
+
+  const { currentTheme } = useGlobalStateContext()
 
   useEffect(() => {
     const renderBoard = canvasRef.current
@@ -20,11 +30,11 @@ const HomeBanner = () => {
     const drawingCtx = drawingBoard.getContext("2d")
 
     renderCtx.globalCompositeOperation = "source-over"
-    renderCtx.fillStyle = "#000"
-    renderCtx.fillRect(0, 0, 100, 100)
+    renderCtx.fillStyle = (currentTheme === "dark" ? "#000" : "#fff")
+    renderCtx.fillRect(0, 0, windowSize.width, windowSize.height)
 
     return () => {}
-  }, [])
+  }, [currentTheme])
 
   return (
     <Banner>

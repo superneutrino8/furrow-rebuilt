@@ -22,7 +22,6 @@ export const Canvas = styled.canvas`
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: ${props => props.theme.background};
 `
 
 export const BannerTittle = styled.h1`
