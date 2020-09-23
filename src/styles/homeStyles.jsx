@@ -24,7 +24,7 @@ export const Canvas = styled.canvas`
   width: 100%;
 `
 
-export const BannerTittle = styled.h1`
+export const BannerTittle = styled(motion.h1)`
   position: absolute;
   /* top: 0; */
   left: -14px;
@@ -34,7 +34,7 @@ export const BannerTittle = styled.h1`
   pointer-events: none;
 `
 
-export const Heading = styled.span`
+export const Heading = styled(motion.span)`
   display: block;
   font-size: 13rem;
   line-height: 0.8;
