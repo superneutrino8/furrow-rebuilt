@@ -20,6 +20,7 @@ export const Logo = styled.div`
     font-size: 1.8rem;
     letter-spacing: 2.5px;
     user-select: none;
+    pointer-events: all;
   }
   span {
     height: 20px;
@@ -30,6 +31,7 @@ export const Logo = styled.div`
     margin: 0 2px;
     margin-right: 2.5px;
     user-select: none;
+    pointer-events: all;
   }
 `
 export const Menu = styled.div`

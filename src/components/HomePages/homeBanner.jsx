@@ -30,7 +30,7 @@ const HomeBanner = ({ onMouse }) => {
     const drawingCtx = drawingBoard.getContext("2d")
 
     renderCtx.globalCompositeOperation = "source-over"
-    renderCtx.fillStyle = currentTheme === "dark" ? "#000" : "#fff"
+    renderCtx.fillStyle = currentTheme === "dark" ? "#121212" : "#FAFAFA"
     renderCtx.fillRect(0, 0, windowSize.width, windowSize.height)
 
     let lastX
