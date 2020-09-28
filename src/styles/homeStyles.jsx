@@ -5,6 +5,7 @@ export const Banner = styled.div`
   height: 100vh;
   width: 100%;
   position: relative;
+  margin-bottom: 500px;
 `
 
 export const Video = styled.div`

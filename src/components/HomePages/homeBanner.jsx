@@ -33,8 +33,8 @@ const HomeBanner = ({ onMouse }) => {
     renderCtx.fillStyle = currentTheme === "dark" ? "#121212" : "#FAFAFA"
     renderCtx.fillRect(0, 0, windowSize.width, windowSize.height)
 
-    let lastX
-    let lastY
+    let lastX = 0
+    let lastY = 0
     let moving = false
 
     renderBoard.addEventListener("mouseover", e => {
@@ -112,13 +112,9 @@ const HomeBanner = ({ onMouse }) => {
         onMouseEnter={() => onMouse("hovered")}
         onMouseLeave={() => onMouse("")}
       />
-      <BannerTittle variants={parent} initial='initial' animate='animate'>
-        <Heading variants={child}>
-          DIG
-        </Heading>
-        <Heading variants={child}>
-          DEEP
-        </Heading>
+      <BannerTittle variants={parent} initial="initial" animate="animate">
+        <Heading variants={child}>DIG</Heading>
+        <Heading variants={child}>DEEP</Heading>
       </BannerTittle>
     </Banner>
   )
