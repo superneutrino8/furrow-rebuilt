@@ -36,6 +36,12 @@ export const Flex = styled.div`
     css`
       justify-content: space-between;
     `}
+
+  ${props =>
+    props.noHeight &&
+    css`
+      height: 0px;
+    `}
 `
 
 export const Cursor = styled.div`
