@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion, useTapGesture } from "framer-motion"
 
 // Styled Component
 import {
@@ -49,7 +49,7 @@ const navRoutes = [
 
 const Navigation = () => {
   const [VideoHover, setVideoHover] = useState({
-    show: true,
+    show: false,
     video: "featured-video.mp4",
     id: "0",
   })
@@ -72,7 +72,23 @@ const Navigation = () => {
           <ul>
             {navRoutes.map(route => {
               return (
-                <li key={route.id}>
+                <motion.li
+                  key={route.id}
+                  onHoverStart={() =>
+                    setVideoHover({
+                      show: true,
+                      video: route.video,
+                      id: route.id,
+                    })
+                  }
+                  onHoverEnd={() =>
+                    setVideoHover({
+                      show: false,
+                      video: route.video,
+                      id: route.id,
+                    })
+                  }
+                >
                   <Link to={`/project/${route.path}`}>
                     <motion.div
                       className="link"
@@ -102,21 +118,36 @@ const Navigation = () => {
                       <span>{route.title}</span>
                     </motion.div>
                   </Link>
-                </li>
+                </motion.li>
               )
             })}
           </ul>
         </NavList>
         <NavFooter></NavFooter>
         <NavVideos>
-          <div className="reveal"></div>
-          <div className="video">
-            <video
-              src={require(`../assets/video/${VideoHover.video}`)}
-              loop
-              autoPlay
-            ></video>
-          </div>
+          <motion.div
+            className="reveal"
+            animate={{ width: VideoHover.show ? 0 : "100%" }}
+          ></motion.div>
+          <motion.div
+            className="video"
+            // animate={{ left: VideoHover.show ? "15%" : "200%" }}
+          >
+            <AnimatePresence initial={false} exitBeforeEnter>
+              <motion.video
+                key={VideoHover.id}
+                src={require(`../assets/video/${VideoHover.video}`)}
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                loop
+                autoPlay
+              ></motion.video>
+            </AnimatePresence>
+          </motion.div>
         </NavVideos>
       </Container>
     </Nav>

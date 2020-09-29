@@ -78,31 +78,30 @@ export const NavList = styled.div`
 export const NavFooter = styled.div``
 
 export const NavVideos = styled.div`
-  height: 100%;
-  width: 100%;
-  background-color: ${props => props.theme.color};
   position: absolute;
   top: 0;
-  left: 0;
+  bottom: 0;
+  left: 25%;
   z-index: -1;
+  height: 100%;
+  width: 100%;
+  background: #000;
   .reveal {
-    height: 100%;
     width: 100%;
-    background-color: ${props => props.theme.red};
+    background: #ea281e;
     position: absolute;
     top: 0;
+    bottom: 0;
     left: 0;
-    z-index: -1;
   }
   .video {
-    height: 100%;
+    background: #000;
     position: absolute;
-    top: 0;
-    left: 200%;
+    height: 100%;
+    margin: 0;
     z-index: -1;
     video {
       height: 100%;
-      object-fit: cover;
     }
   }
 `
