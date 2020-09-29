@@ -55,18 +55,18 @@ export const NavList = styled.div`
       overflow: hidden;
       font-weight: 900;
       .link {
-        color: ${props => props.theme.background};
+        color: ${props => props.theme.color};
         position: relative;
         display: flex;
         align-items: center;
         pointer-events: all;
         .arrow {
           /* height: 56px; */
-          margin-right: 8px;
+          margin-right: 4px;
           svg {
             width: 50px;
             path {
-              fill: ${props => props.theme.background};
+              fill: ${props => props.theme.color};
             }
           }
         }
