@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 // Styled Component
 import {
@@ -7,6 +7,7 @@ import {
   NavList,
   NavFooter,
   CloseNav,
+  NavVideos,
 } from "../styles/navigationStyles"
 import { Container, Flex } from "../styles/globalStyles"
 
@@ -45,6 +46,12 @@ const navRoutes = [
 ]
 
 const Navigation = () => {
+  const [VideoHover, setVideoHover] = useState({
+    show: true,
+    video: "featured-video.mp4",
+    id: "0",
+  })
+
   return (
     <Nav>
       <Container>
@@ -63,8 +70,8 @@ const Navigation = () => {
           <ul>
             {navRoutes.map(route => {
               return (
-                <li>
-                  <Link to={route.path}>
+                <li key={route.id}>
+                  <Link to={`/project/${route.path}`}>
                     <div className="link">
                       <div className="arrow">
                         <svg
@@ -87,6 +94,16 @@ const Navigation = () => {
           </ul>
         </NavList>
         <NavFooter></NavFooter>
+        <NavVideos>
+          <div className="reveal"></div>
+          <div className="video">
+            <video
+              src={require(`../assets/video/${VideoHover.video}`)}
+              loop
+              autoPlay
+            ></video>
+          </div>
+        </NavVideos>
       </Container>
     </Nav>
   )
