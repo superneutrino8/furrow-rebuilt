@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
+import { motion } from "framer-motion"
+
 // Styled Component
 import {
   Nav,
@@ -72,7 +74,19 @@ const Navigation = () => {
               return (
                 <li key={route.id}>
                   <Link to={`/project/${route.path}`}>
-                    <div className="link">
+                    <motion.div
+                      className="link"
+                      initial={{
+                        x: -52,
+                      }}
+                      whileHover={{
+                        x: 0,
+                        transition: {
+                          duration: 0.4,
+                          ease: [0.6, 0.05, -0.01, 0.9],
+                        },
+                      }}
+                    >
                       <div className="arrow">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +100,7 @@ const Navigation = () => {
                         </svg>
                       </div>
                       <span>{route.title}</span>
-                    </div>
+                    </motion.div>
                   </Link>
                 </li>
               )

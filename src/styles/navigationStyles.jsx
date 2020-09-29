@@ -59,6 +59,7 @@ export const NavList = styled.div`
         position: relative;
         display: flex;
         align-items: center;
+        pointer-events: all;
         .arrow {
           /* height: 56px; */
           margin-right: 8px;
