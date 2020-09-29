@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100%;
   width: auto;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 120px;
   position: relative;
   @media (min-width: 1024px) {
     max-width: 960px;

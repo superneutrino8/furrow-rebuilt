@@ -5,7 +5,7 @@ export const Banner = styled.div`
   height: 100vh;
   width: 100%;
   position: relative;
-  margin-bottom: 500px;
+  margin-bottom: 280px;
 `
 
 export const Video = styled.div`
@@ -39,4 +39,14 @@ export const Heading = styled(motion.span)`
   display: block;
   font-size: 13rem;
   line-height: 0.8;
+`
+export const HomeContentSection = styled.div`
+  width: 58%;
+  margin-left: 15%;
+  font-size: 1rem;
+  margin-bottom: 100px;
+`
+
+export const Content = styled.h2`
+  font-weight: 400;
 `
