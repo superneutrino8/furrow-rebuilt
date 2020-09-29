@@ -40,13 +40,14 @@ export const Heading = styled(motion.span)`
   font-size: 13rem;
   line-height: 0.8;
 `
-export const HomeContentSection = styled.div`
+export const HomeContentSection = styled(motion.div)`
   width: 58%;
   margin-left: 15%;
   font-size: 1rem;
-  margin-bottom: 100px;
+  margin-bottom: 500px;
 `
 
 export const Content = styled.h2`
   font-weight: 400;
+  color: ${props => props.theme.color};
 `
