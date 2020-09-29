@@ -11,7 +11,7 @@ import {
   useGlobalDispatchContext,
 } from "../context/globalContext"
 
-const Header = ({ onMouse }) => {
+const Header = ({ onMouse, toggleMenu, setToggleMenu }) => {
   const { currentTheme, cursorType } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
 
@@ -47,7 +47,7 @@ const Header = ({ onMouse }) => {
             ></span>
             <Link to="/">W</Link>
           </Logo>
-          <Menu>
+          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
             <button>
               <span></span>
               <span></span>

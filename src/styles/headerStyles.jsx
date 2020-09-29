@@ -41,6 +41,7 @@ export const Menu = styled.div`
     background: none;
     transform-origin: center;
     padding: 20px;
+    pointer-events: all;
     span {
       height: 4px;
       width: 28px;

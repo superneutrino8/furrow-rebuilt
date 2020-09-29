@@ -68,5 +68,10 @@ export const Cursor = styled.div`
 
   &.pointer {
     border: 2px solid ${props => props.theme.color};
+    background: transparent !important;
+  }
+
+  &.nav-hover {
+    background: ${props => props.theme.color};
   }
 `

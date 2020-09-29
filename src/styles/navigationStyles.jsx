@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-export const Nav = styled.div`
+export const Nav = styled(motion.div)`
   height: 100%;
   width: 100%;
   position: fixed;
@@ -15,7 +15,7 @@ export const Nav = styled.div`
 `
 
 export const NavHeader = styled.div`
-  top: 72px;
+  top: 88px;
   position: relative;
   h3 {
     font-size: 2.5rem;
@@ -23,12 +23,14 @@ export const NavHeader = styled.div`
 `
 
 export const CloseNav = styled.div`
+  z-index: 99;
   button {
     border: none;
     outline: none;
     background: none;
     transform-origin: center;
     padding: 20px;
+    pointer-events: all;
     span {
       height: 4px;
       width: 28px;

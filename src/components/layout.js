@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -74,12 +74,22 @@ const Layout = ({ children }) => {
     dispatch({ type: "CURSOR_STYLE", cursorType: cursorType })
   }
 
+  const [toggleMenu, setToggleMenu] = useState(false)
+
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyles />
-      <CustomCourser />
-      <Header onMouse={onMouse} />
-      <Navigation />
+      <CustomCourser toggleMenu={toggleMenu} />
+      <Header
+        onMouse={onMouse}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+      />
+      <Navigation
+        onMouse={onMouse}
+        toggleMenu={toggleMenu}
+        setToggleMenu={setToggleMenu}
+      />
       <main>{children}</main>
     </ThemeProvider>
   )
