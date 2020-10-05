@@ -38,6 +38,12 @@ export const Flex = styled.div`
     `}
 
   ${props =>
+    props.flexEnd &&
+    css`
+      justify-content: flex-end;
+    `}
+
+  ${props =>
     props.noHeight &&
     css`
       height: 0px;

@@ -24,7 +24,7 @@ const IndexPage = props => {
     <Layout>
       <HomeBanner onMouse={onMouse} />
       <HomeContent />
-      <HomeFeature />
+      <HomeFeature onMouse={onMouse} />
     </Layout>
   )
 }

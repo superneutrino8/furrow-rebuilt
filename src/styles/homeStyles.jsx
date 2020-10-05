@@ -61,7 +61,7 @@ export const HomeFeatureSection = styled.div`
   position: relative;
   margin: 200px 0;
   width: 100%;
-  margin-bottom: 250px;
+  /* margin-bottom: 250px; */
   a {
     position: relative;
     width: 100%;
@@ -78,6 +78,8 @@ export const FeaturedContent = styled.div`
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
+  height: 480px;
   h3 {
     font-size: 1.8rem;
   }
@@ -92,11 +94,28 @@ export const FeaturedContent = styled.div`
   }
   .featured-title {
     position: absolute;
-    bottom: -120px;
+    top: 400px;
     h2 {
-      font-size: 5rem;
+      font-size: 3.5rem;
       margin: 0;
       padding: 0;
+      line-height: 0.8;
+    }
+    .arrow {
+      width: 120px;
+      height: 80px;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      svg {
+        position: absolute;
+        top: 19px;
+        left: -48px;
+        width: 108px;
+        path {
+          fill: ${props => props.theme.color};
+        }
+      }
     }
   }
 `
@@ -109,11 +128,46 @@ export const FeaturedVideo = styled.div`
   border-radius: 20px;
   z-index: -1;
   width: 100%;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
   video {
     overflow: hidden;
     object-fit: cover;
   }
 `
 
-export const FeaturedProject = styled.div``
+export const FeaturedProject = styled.div`
+  margin-top: 36px;
+  display: block;
+  box-sizing: border-box;
+  button {
+    padding: 0.8rem 2.5rem;
+    border: 0;
+    background: ${props => props.theme.red};
+    position: relative;
+    span {
+      color: ${props => props.theme.color};
+      text-transform: uppercase;
+      font-weight: 800;
+      display: block;
+      margin-right: 40px;
+    }
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      top: 50%;
+      right: 20px;
+      height: 4px;
+      width: 20px;
+      background: #fff;
+      transform: translateY(-50%);
+    }
+    &:before {
+      margin-top: -5px;
+    }
+    &:after {
+      margin-top: 5px;
+    }
+  }
+`

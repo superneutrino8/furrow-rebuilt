@@ -10,12 +10,15 @@ import {
   FeaturedProject,
 } from "../../styles/homeStyles"
 
-const HomeFeature = () => {
+const HomeFeature = ({ onMouse }) => {
   return (
     <HomeFeatureSection>
       <Container>
         <Link>
-          <FeaturedContent>
+          <FeaturedContent
+            onMouseEnter={() => onMouse("hovered")}
+            onMouseLeave={() => onMouse("")}
+          >
             <Flex spaceBetween>
               <h3>Featured Project</h3>
               <div className="meta">
@@ -48,7 +51,13 @@ const HomeFeature = () => {
         </Link>
       </Container>
       <Container>
-        <FeaturedProject></FeaturedProject>
+        <FeaturedProject>
+          <Flex flexEnd>
+            <button>
+              <span>All Projects</span>
+            </button>
+          </Flex>
+        </FeaturedProject>
       </Container>
     </HomeFeatureSection>
   )
