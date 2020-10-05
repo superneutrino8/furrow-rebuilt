@@ -57,7 +57,7 @@ export const Content = styled.h2`
 
 // Home Feature Block
 
-export const HomeFeatureSection = styled.div`
+export const HomeFeatureSection = styled(motion.div)`
   position: relative;
   margin: 200px 0;
   width: 100%;
@@ -69,7 +69,7 @@ export const HomeFeatureSection = styled.div`
   }
 `
 
-export const FeaturedContent = styled.div`
+export const FeaturedContent = styled(motion.div)`
   /* position: absolute; */
   /* top: 0; */
   /* left: 0; */
