@@ -72,7 +72,7 @@ const HomeBanner = ({ onMouse }) => {
 
   const parent = {
     initial: {
-      y: 800,
+      y: 200,
     },
     animate: {
       y: 0,
@@ -83,7 +83,7 @@ const HomeBanner = ({ onMouse }) => {
   }
   const child = {
     initial: {
-      y: 800,
+      y: 200,
     },
     animate: {
       y: 0,
