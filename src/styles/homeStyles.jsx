@@ -149,7 +149,8 @@ export const FeaturedProject = styled.div`
       text-transform: uppercase;
       font-weight: 800;
       display: block;
-      margin-right: 40px;
+      margin-right: 28px;
+      margin-left: -15px;
     }
     &:before,
     &:after {
@@ -171,3 +172,28 @@ export const FeaturedProject = styled.div`
     }
   }
 `
+
+// Home About Section
+
+export const HomeAboutSection = styled.div`
+  margin-bottom: 200px;
+`
+
+export const About = styled.div`
+  width: 100%;
+  h2 {
+    line-height: 3rem;
+    font-size: 2.5rem;
+    width: 52%;
+    color: ${props => props.theme.color};
+    font-weight: 400;
+  }
+  p {
+    line-height: 1.6rem;
+    font-size: 1.2rem;
+    width: 50%;
+    color: ${props => props.theme.color};
+  }
+`
+
+export const Services = styled.div``

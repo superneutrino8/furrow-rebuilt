@@ -48,6 +48,12 @@ export const Flex = styled.div`
     css`
       height: 0px;
     `}
+
+  ${props =>
+    props.alignTop &&
+    css`
+      align-items: flex-start;
+    `}
 `
 
 export const Cursor = styled.div`

@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import HomeBanner from "../components/HomePages/homeBanner"
 import HomeContent from "../components/HomePages/homeContent"
 import HomeFeature from "../components/HomePages/homeFeature"
+import HomeAbout from "../components/HomePages/homeAbout"
 
 // Context
 import {
@@ -25,6 +26,7 @@ const IndexPage = props => {
       <HomeBanner onMouse={onMouse} />
       <HomeContent />
       <HomeFeature onMouse={onMouse} />
+      <HomeAbout onMouse={onMouse} />
     </Layout>
   )
 }
