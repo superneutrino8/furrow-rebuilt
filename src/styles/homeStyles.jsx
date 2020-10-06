@@ -149,7 +149,8 @@ export const FeaturedProject = styled.div`
       text-transform: uppercase;
       font-weight: 800;
       display: block;
-      margin-right: 40px;
+      margin-right: 28px;
+      margin-left: -15px;
     }
     &:before,
     &:after {
@@ -169,5 +170,70 @@ export const FeaturedProject = styled.div`
     &:after {
       margin-top: 5px;
     }
+  }
+`
+
+// Home About Section
+
+export const HomeAboutSection = styled(motion.div)`
+  margin-bottom: 200px;
+`
+
+export const About = styled.div`
+  width: 100%;
+  h2 {
+    line-height: 3rem;
+    font-size: 2.5rem;
+    width: 82%;
+    color: ${props => props.theme.color};
+    font-weight: 400;
+    margin: 0;
+  }
+  p {
+    line-height: 1.6rem;
+    font-size: 1.2rem;
+    width: 80%;
+    color: ${props => props.theme.color};
+  }
+`
+
+export const Services = styled.div`
+  h2 {
+    margin: 0;
+  }
+`
+
+export const AccrodionHeader = styled(motion.div)`
+  color: ${props => props.theme.red};
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-right: 10px;
+  p {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: 600;
+  }
+`
+export const AccrodionIcon = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  span {
+    width: 12px;
+    height: 2px;
+    background: #ea281e;
+    transition: all 0.1s ease-in-out;
+  }
+`
+
+export const AccrodionContent = styled(motion.div)`
+  color: ${props => props.theme.red};
+  margin-top: -15px;
+  overflow: hidden;
+  padding-left: 35px;
+  span {
+    display: block;
+    margin: 8px 0;
   }
 `

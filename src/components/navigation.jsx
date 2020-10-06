@@ -12,6 +12,10 @@ import {
   NavVideos,
 } from "../styles/navigationStyles"
 import { Container, Flex } from "../styles/globalStyles"
+import { FooterNav, FooterContent, FooterSocial } from "../styles/footerStyles"
+
+// Icons
+import { Instagram, Facebook, Vimeo } from "../assets/svg/social-icons"
 
 // routes
 const navRoutes = [
@@ -142,7 +146,41 @@ const Navigation = ({ onMouse, toggleMenu, setToggleMenu }) => {
                   })}
                 </ul>
               </NavList>
-              <NavFooter></NavFooter>
+              <NavFooter>
+                <Container>
+                  <Flex spaceBetween>
+                    <FooterContent>
+                      <p>info@furrow.studio</p>
+                    </FooterContent>
+                    <FooterContent wider>
+                      <p>902.315.1279</p>
+                    </FooterContent>
+                    <FooterSocial>
+                      <a
+                        onMouseEnter={() => onMouse("pointer")}
+                        onMouseLeave={() => onMouse("")}
+                        href="/"
+                      >
+                        <Instagram />
+                      </a>
+                      <a
+                        onMouseEnter={() => onMouse("pointer")}
+                        onMouseLeave={() => onMouse("")}
+                        href="/"
+                      >
+                        <Facebook />
+                      </a>
+                      <a
+                        onMouseEnter={() => onMouse("pointer")}
+                        onMouseLeave={() => onMouse("")}
+                        href="/"
+                      >
+                        <Vimeo />
+                      </a>
+                    </FooterSocial>
+                  </Flex>
+                </Container>
+              </NavFooter>
               <NavVideos>
                 <motion.div
                   className="reveal"

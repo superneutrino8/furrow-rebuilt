@@ -1,9 +1,12 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { Link } from "gatsby"
 
 // Styled Component
 import { HeaderNav, Logo, Menu } from "../styles/headerStyles"
 import { Container, Flex } from "../styles/globalStyles"
+
+// Custom Hook
+import useElementPosition from "../hooks/useElementPosition"
 
 // Context
 import {
@@ -11,9 +14,16 @@ import {
   useGlobalDispatchContext,
 } from "../context/globalContext"
 
-const Header = ({ onMouse, toggleMenu, setToggleMenu }) => {
+const Header = ({
+  onMouse,
+  toggleMenu,
+  setToggleMenu,
+  setHamburgerPosition,
+}) => {
   const { currentTheme, cursorType } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
+  const hambuger = useRef(null)
+  const position = useElementPosition(hambuger)
 
   const toggleTheme = () => {
     if (currentTheme === "dark") {
@@ -21,6 +31,11 @@ const Header = ({ onMouse, toggleMenu, setToggleMenu }) => {
     } else {
       dispatch({ type: "TOGGLE_THEME", theme: "dark" })
     }
+  }
+
+  const menuHover = () => {
+    onMouse("locked")
+    setHamburgerPosition({ x: position.x, y: position.y + 100 })
   }
 
   useEffect(() => {
@@ -47,7 +62,12 @@ const Header = ({ onMouse, toggleMenu, setToggleMenu }) => {
             ></span>
             <Link to="/">W</Link>
           </Logo>
-          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
+          <Menu
+            ref={hambuger}
+            onClick={() => setToggleMenu(!toggleMenu)}
+            onMouseEnter={menuHover}
+            onMouseLeave={() => onMouse("")}
+          >
             <button>
               <span></span>
               <span></span>
