@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import CustomCourser from "./customCursor"
 import Navigation from "./navigation"
+import Footer from "./footer"
 
 // Styled Component
 import { createGlobalStyle, ThemeProvider } from "styled-components"
@@ -102,6 +103,7 @@ const Layout = ({ children }) => {
         setToggleMenu={setToggleMenu}
       />
       <main>{children}</main>
+      <Footer onMouse={onMouse} />
     </ThemeProvider>
   )
 }
