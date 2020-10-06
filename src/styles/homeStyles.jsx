@@ -175,7 +175,7 @@ export const FeaturedProject = styled.div`
 
 // Home About Section
 
-export const HomeAboutSection = styled.div`
+export const HomeAboutSection = styled(motion.div)`
   margin-bottom: 200px;
 `
 
@@ -184,7 +184,7 @@ export const About = styled.div`
   h2 {
     line-height: 3rem;
     font-size: 2.5rem;
-    width: 52%;
+    width: 82%;
     color: ${props => props.theme.color};
     font-weight: 400;
     margin: 0;
@@ -192,7 +192,7 @@ export const About = styled.div`
   p {
     line-height: 1.6rem;
     font-size: 1.2rem;
-    width: 50%;
+    width: 80%;
     color: ${props => props.theme.color};
   }
 `

@@ -1,5 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+
+import { useInView } from "react-intersection-observer"
+import { useAnimation } from "framer-motion"
 
 // Styled Component
 import { Container, Flex } from "../../styles/globalStyles"
@@ -11,6 +14,9 @@ import {
   AccrodionIcon,
   AccrodionContent,
 } from "../../styles/homeStyles"
+
+// Context
+import { useGlobalStateContext } from "../../context/globalContext"
 
 // Accordion Data
 const accordionIds = [
@@ -69,11 +75,40 @@ const accordionIds = [
   },
 ]
 
-const HomeAbout = () => {
+const HomeAbout = ({ onMouse }) => {
   const [expanded, setExpanded] = useState(0)
+  const animation = useAnimation()
+  const [aboutRef, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "-100px",
+  })
+
+  useEffect(() => {
+    if (inView) {
+      animation.start("visible")
+    }
+  }, [inView, animation])
 
   return (
-    <HomeAboutSection>
+    <HomeAboutSection
+      ref={aboutRef}
+      initial="hidden"
+      animate={animation}
+      variants={{
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.8,
+            ease: [0.6, 0.05, -0.01, 0.9],
+          },
+        },
+        hidden: {
+          opacity: 0,
+          y: 72,
+        },
+      }}
+    >
       <Container>
         <Flex alignTop>
           <About>
@@ -99,6 +134,7 @@ const HomeAbout = () => {
                   details={accord}
                   expanded={expanded}
                   setExpanded={setExpanded}
+                  onMouse={onMouse}
                 />
               )
             })}
@@ -109,11 +145,19 @@ const HomeAbout = () => {
   )
 }
 
-const Accrodion = ({ index, details, expanded, setExpanded }) => {
+const Accrodion = ({ index, details, expanded, setExpanded, onMouse }) => {
   const isOpen = details.id === expanded
+  const { currentTheme } = useGlobalStateContext()
   return (
     <>
-      <AccrodionHeader onClick={() => setExpanded(isOpen ? false : details.id)}>
+      <AccrodionHeader
+        onClick={() => setExpanded(isOpen ? false : details.id)}
+        onMouseEnter={() => onMouse("hovered")}
+        onMouseLeave={() => onMouse("")}
+        whileHover={{
+          color: currentTheme === "dark" ? "#ffffff" : "#000000",
+        }}
+      >
         <AccrodionIcon>
           <motion.span
             animate={{ rotate: isOpen ? 0 : 45, x: 3 }}
