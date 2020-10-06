@@ -187,6 +187,7 @@ export const About = styled.div`
     width: 52%;
     color: ${props => props.theme.color};
     font-weight: 400;
+    margin: 0;
   }
   p {
     line-height: 1.6rem;
@@ -196,4 +197,43 @@ export const About = styled.div`
   }
 `
 
-export const Services = styled.div``
+export const Services = styled.div`
+  h2 {
+    margin: 0;
+  }
+`
+
+export const AccrodionHeader = styled(motion.div)`
+  color: ${props => props.theme.red};
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-right: 10px;
+  p {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: 600;
+  }
+`
+export const AccrodionIcon = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+  span {
+    width: 12px;
+    height: 2px;
+    background: #ea281e;
+    transition: all 0.1s ease-in-out;
+  }
+`
+
+export const AccrodionContent = styled(motion.div)`
+  color: ${props => props.theme.red};
+  margin-top: -15px;
+  overflow: hidden;
+  padding-left: 35px;
+  span {
+    display: block;
+    margin: 8px 0;
+  }
+`
