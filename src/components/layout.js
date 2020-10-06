@@ -43,18 +43,6 @@ const GlobalStyles = createGlobalStyle`
   }
 `
 
-const darkTheme = {
-  background: "#121212",
-  color: "#FAFAFA",
-  red: "#ea291e",
-}
-
-const lightTheme = {
-  background: "#FAFAFA",
-  color: "#121212",
-  red: "#ea291e",
-}
-
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -68,6 +56,27 @@ const Layout = ({ children }) => {
 
   const { currentTheme, cursorType } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
+
+  const [hamburgerPosition, setHamburgerPosition] = useState({
+    x: 0,
+    y: 0,
+  })
+
+  const darkTheme = {
+    background: "#121212",
+    color: "#FAFAFA",
+    red: "#ea291e",
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`,
+  }
+
+  const lightTheme = {
+    background: "#FAFAFA",
+    color: "#121212",
+    red: "#ea291e",
+    left: `${hamburgerPosition.x}px`,
+    top: `${hamburgerPosition.y}px`,
+  }
 
   const onMouse = cursorType => {
     cursorType = (cursorType.includes(cursorType) && cursorType) || false
@@ -84,6 +93,8 @@ const Layout = ({ children }) => {
         onMouse={onMouse}
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
+        hamburgerPosition={hamburgerPosition}
+        setHamburgerPosition={setHamburgerPosition}
       />
       <Navigation
         onMouse={onMouse}
