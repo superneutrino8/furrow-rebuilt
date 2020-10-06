@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import Helmet from "react-helmet"
 
 import HomeBanner from "../components/HomePages/homeBanner"
 import HomeContent from "../components/HomePages/homeContent"
@@ -23,6 +24,15 @@ const IndexPage = props => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Furrow - Rebuilt</title>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={require("../assets/svg/favicon.png")}
+        ></link>
+      </Helmet>
       <HomeBanner onMouse={onMouse} />
       <HomeContent />
       <HomeFeature onMouse={onMouse} />
