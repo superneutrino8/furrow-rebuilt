@@ -84,7 +84,7 @@ export const Cursor = styled.div`
   }
 
   &.nav-hover {
-    background: ${props => props.theme.color};
+    background: ${props => props.theme.color} ;
   }
 
   &.locked {
